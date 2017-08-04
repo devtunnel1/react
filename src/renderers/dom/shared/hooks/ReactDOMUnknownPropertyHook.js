@@ -37,6 +37,7 @@ function getStackAddendum(debugID) {
 if (__DEV__) {
   var warnedProperties = {};
   var EVENT_NAME_REGEX = /^on[A-Z]/;
+  var possibleStandardNames = require('possibleStandardNames');
 
   var validateProperty = function(tagName, name, value, debugID) {
     var lowerCasedName = name.toLowerCase();
@@ -78,8 +79,8 @@ if (__DEV__) {
     }
 
     // data-* attributes should be lowercase; suggest the lowercase version
-    var standardName = DOMProperty.getPossibleStandardName.hasOwnProperty(name)
-      ? DOMProperty.getPossibleStandardName[name]
+    var standardName = possibleStandardNames.hasOwnProperty(name)
+      ? possibleStandardNames[name]
       : null;
 
     var hasBadCasing = standardName != null && standardName !== name;
