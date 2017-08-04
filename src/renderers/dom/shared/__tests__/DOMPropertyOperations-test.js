@@ -80,11 +80,11 @@ describe('DOMPropertyOperations', () => {
       // This ensures that we have consistent behavior.
       var obj = {
         toString: function() {
-          return '<html>';
+          return 'css-class';
         },
       };
-      DOMPropertyOperations.setValueForProperty(stubNode, 'role', obj);
-      expect(stubNode.getAttribute('role')).toBe('<html>');
+      DOMPropertyOperations.setValueForProperty(stubNode, 'className', obj);
+      expect(stubNode.getAttribute('class')).toBe('css-class');
     });
 
     it('should not remove empty attributes for special properties', () => {
